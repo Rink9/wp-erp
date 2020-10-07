@@ -1279,6 +1279,7 @@ class Ajax_Handler {
                     'created_by'    => $postdata['created_by'],
                     'message'       => $postdata['message'],
                     'type'          => $postdata['type'],
+                    'title'         => ( isset( $postdata['task_title'] ) && ! empty( $postdata['task_title'] ) ) ? $postdata['task_title'] : '',
                     'email_subject' => ( isset( $postdata['email_subject'] ) && ! empty( $postdata['email_subject'] ) ) ? $postdata['email_subject'] : '',
                     'start_date'    => date( 'Y-m-d H:i:s', strtotime( $postdata['task_date'] . $postdata['task_time'] ) ),
                     'extra'         => base64_encode( json_encode( $extra_data ) ),
