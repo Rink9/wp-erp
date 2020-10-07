@@ -147,6 +147,39 @@ function erp_crm_get_crm_user_html_dropdown( $selected = '' ) {
 }
 
 /**
+ * Retrieves crm manager and contact owner
+ *
+ * @since 1.6.7
+ *
+ * @param int $contact_id
+ * @param string $selected
+ *
+ * @return string
+ */
+function erp_crm_filter_manager_owner_dropdown( $contact_id, $selected = '' ) {
+    $crm_users = erp_crm_get_crm_user();
+    $contact   = erp_get_people( $contact_id );
+    $dropdown  = '';
+
+    if ( $crm_users ) {
+        foreach ( $crm_users as $key => $user ) {
+            if ( 'erp_crm_manager' === erp_crm_get_user_role( $user->ID ) || $user->ID == intval( $contact->contact_owner ) ) {
+
+                if ( $user->ID == get_current_user_id() ) {
+                    $title = sprintf( '%s ( %s )', __( 'Me', 'erp' ), $user->display_name );
+                } else {
+                    $title = $user->display_name;
+                }
+
+                $dropdown .= sprintf( "<option value='%s'%s>%s</option>\n", $user->ID, selected( $selected, $user->ID, false ), $title );
+            }
+        }
+    }
+
+    return $dropdown;
+}
+
+/**
  * Get contact details url according to contact type
  *
  * @since 1.0
