@@ -27,3 +27,18 @@ I.amOnPage('http://localhost/test8/wp-admin/admin.php?page=erp-hr&section=payrol
 I.amOnPage('http://localhost/test8/wp-admin/admin.php?page=erp-hr&section=payroll&sub-section=payrun&tab=approve&prid=12')
 I.click('Approve')
 I.click('Confirm')
+
+<<< Recorded commands on Sun Oct 25 2020 23:22:54 GMT+0600 (Bangladesh Standard Time)
+I.amOnPage('http://localhost/test4/wp-admin/plugins.php?action=deactivate&plugin=wp-erp%2Fwp-erp.php&plugin_status=all&paged=1&s&_wpnonce=070e14ce94')
+
+<<< Recorded commands on Mon Oct 26 2020 19:59:51 GMT+0600 (Bangladesh Standard Time)
+I.click('Modules')
+I.click("//div[@id='wpbody-content']/div[2]/div/div[2]/div/div/div/div[2]/label/span")
+I.click('HRM')
+I.click("//input[@value='advanced_leave']")
+I.checkOption('Select All')
+I.click('Activate')
+I.click('HRM')
+I.uncheckOption('Select All')
+I.click('HRM')
+I.click('#close_table_nav_btn')
